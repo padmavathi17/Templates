@@ -19,7 +19,11 @@ class ApiClient {
         val retrofit = Retrofit.Builder()
                 .baseUrl(MainApp.Base_Url)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
         val service = retrofit.create<ApiInterface>(ApiInterface::class.java)
     }
+
+
+
 }

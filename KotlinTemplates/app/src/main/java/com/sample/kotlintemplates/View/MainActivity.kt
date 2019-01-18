@@ -76,13 +76,13 @@ class MainActivity : AppCompatActivity() {
 
 
     fun loadJsonwithRxjava() {
-        val requestInterface: ApiInterface = Retrofit.Builder()
+        /*val requestInterface: ApiInterface = Retrofit.Builder()
                 .baseUrl(MainApp.Base_Url)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(ApiInterface::class.java)
+                .build().create(ApiInterface::class.java)*/
 
-        mCompositeDisposable.add(requestInterface.dataApi()
+        mCompositeDisposable.add(ApiClient.service.dataApi()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError));

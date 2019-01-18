@@ -10,9 +10,11 @@ import retrofit2.http.GET
  * @GET, @POST, @PUT, @DELETE, @PATCH or @HEAD
  */
 interface ApiInterface {
+    //Normal consuming
     @GET("/bigboss/bigboss.json")
     fun namesAPI() : Call<Pojo>
 
+    //For Rxjava we wil use observables
     @GET("/bigboss/bigboss.json")
     fun dataApi(): Observable<Pojo>
 
